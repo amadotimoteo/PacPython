@@ -101,7 +101,7 @@ function loadImages() {
     wallImage = new Image();
     wallImage.src = "wall.png";
     blueGhostImage = new Image();
-    blueGhostImage.src = "blueGhost.png";
+    blueGhostImage.src = "blueghost.png";
     orangeGhostImage = new Image();
     orangeGhostImage.src = "orangeghost.png";
     pinkGhostImage = new Image();
@@ -401,3 +401,4 @@ reset() {
 }
 
 }
+
