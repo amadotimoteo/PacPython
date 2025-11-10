@@ -7,18 +7,18 @@ const boardWidth = columnCount * tileSize;
 const boardHeight = rowCount * tileSize;
 let context;
 
-let blueGhostImage;
-let orangeGhostImage;
-let pinkGhostImage;
-let redGhostImage;
-let PythonUptImage;
-let PythonDowntImage;
-let PythonLeftImage;
-let PythonRigthImage;
+let blueghostImage;
+let orangeghostImage;
+let pinkghostImage;
+let redghostImage;
+let pythonUptImage;
+let pythonDowntImage;
+let pythonLeftImage;
+let pythonRigthImage;
 let wallImage;
 
 //X = wall, O = skip, P = python, ' ' = food
-//Ghosts: b = blue, o = orange, p = pink, r = red
+//ghosts: b = blue, o = orange, p = pink, r = red
 const tileMap = [
     "XXXXXXXXXXXXXXXXXXX",
     "X        X        X",
@@ -94,29 +94,29 @@ window.onload = function() {
         ghost.updateDirection(newDirection);
    }
     update();
-    document.addEventListener("keyup", movePython);
+    document.addEventListener("keyup", movepython);
 }
 
 function loadImages() {
     wallImage = new Image();
     wallImage.src = "wall.png";
-    blueGhostImage = new Image();
-    blueGhostImage.src = "blueghost.png";
-    orangeGhostImage = new Image();
-    orangeGhostImage.src = "orangeghost.png";
-    pinkGhostImage = new Image();
-    pinkGhostImage.src = "pinkghost.png";
-    redGhostImage = new Image();
-    redGhostImage.src = "redghost.png";
+    blueghostImage = new Image();
+    blueghostImage.src = "blueghost.png";
+    orangeghostImage = new Image();
+    orangeghostImage.src = "orangeghost.png";
+    pinkghostImage = new Image();
+    pinkghostImage.src = "pinkghost.png";
+    redghostImage = new Image();
+    redghostImage.src = "redghost.png";
 
-    PythonUptImage = new Image();
-    PythonUptImage.src = "pythonup.png";
-    PythonDowntImage = new Image();
-    PythonDowntImage.src = "/pythondown.png";
-    PythonLeftImage = new Image();
-    PythonLeftImage.src = "pythonleft.png";
-    PythonRigthImage = new Image();
-    PythonRigthImage.src = "pythonright.png";
+    pythonUptImage = new Image();
+    pythonUptImage.src = "pythonup.png";
+    pythonDowntImage = new Image();
+    pythonDowntImage.src = "/pythondown.png";
+    pythonLeftImage = new Image();
+    pythonLeftImage.src = "pythonleft.png";
+    pythonRigthImage = new Image();
+    pythonRigthImage.src = "pythonright.png";
 }  
 
 function loadMap() {
@@ -137,23 +137,23 @@ function loadMap() {
                 walls.add(wall);
             }
             else if (tileMapChar == "b") { //blue ghost
-                const ghost = new Block(blueGhostImage, x, y, tileSize, tileSize);
+                const ghost = new Block(blueghostImage, x, y, tileSize, tileSize);
                 ghosts.add(ghost);
             }
             else if (tileMapChar == "o") { //orange ghost
-                const ghost = new Block(orangeGhostImage, x, y, tileSize, tileSize);
+                const ghost = new Block(orangeghostImage, x, y, tileSize, tileSize);
                 ghosts.add(ghost);
             }
             else if (tileMapChar == "p") { //pink ghost
-                const ghost = new Block(pinkGhostImage, x, y, tileSize, tileSize);
+                const ghost = new Block(pinkghostImage, x, y, tileSize, tileSize);
                 ghosts.add(ghost);
             }
             else if (tileMapChar == "r") { //red ghost
-                const ghost = new Block(redGhostImage, x, y, tileSize, tileSize);
+                const ghost = new Block(redghostImage, x, y, tileSize, tileSize);
                 ghosts.add(ghost);  
             }
             else if (tileMapChar == "P") { //python
-                python = new Block(PythonRigthImage, x, y, tileSize, tileSize);
+                python = new Block(pythonRigthImage, x, y, tileSize, tileSize);
     }
             else if (tileMapChar == " ") { //food
                 const food = new Block(null, x + 14, y + 14, 4, 4);
@@ -199,7 +199,7 @@ function draw() {
 
 
 function move() {
-    // Move Python
+    // Move python
     python.x += python.velocityX;
     python.y += python.velocityY;
 
@@ -211,14 +211,14 @@ function move() {
         }
     }
 
-    // Túnel lateral para Python
+    // Túnel lateral para python
     if (python.x < -python.width) {
         python.x = boardWidth;
     } else if (python.x > boardWidth) {
         python.x = -python.width;
     }
 
-    // Move Ghosts
+    // Move ghosts
     for (let ghost of ghosts.values()) {
          if (ghost.y == tileSize*9 && ghost.direction != 'U' && ghost.direction != 'D') {
             ghost.updateDirection('U');}
@@ -236,7 +236,7 @@ function move() {
             }
         }
 
-        // Colisão com Python
+        // Colisão com python
         if (collision(ghost, python)) {
             lives -= 1;
             if (lives == 0) {
@@ -286,7 +286,7 @@ function move() {
 }
 
 
-function movePython(e) {
+function movepython(e) {
     if (gameOver) {
         loadMap();
         resetPositions();
@@ -311,16 +311,16 @@ function movePython(e) {
     }
 
     if (python.direction == "U") {
-        python.image = PythonUptImage;
+        python.image = pythonUptImage;
     }
     else if (python.direction == "D") {
-        python.image = PythonDowntImage;
+        python.image = pythonDowntImage;
     }
     else if (python.direction == "L") {
-        python.image = PythonLeftImage;
+        python.image = pythonLeftImage;
     }
     else if (python.direction == "R") {
-        python.image = PythonRigthImage;
+        python.image = pythonRigthImage;
     }
     
 }
@@ -401,4 +401,5 @@ reset() {
 }
 
 }
+
 
