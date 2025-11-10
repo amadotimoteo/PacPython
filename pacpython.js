@@ -99,24 +99,24 @@ window.onload = function() {
 
 function loadImages() {
     wallImage = new Image();
-    wallImage.src = "../wall.png";
+    wallImage.src = "wall.png";
     blueGhostImage = new Image();
-    blueGhostImage.src = "../blueGhost.png";
+    blueGhostImage.src = "blueGhost.png";
     orangeGhostImage = new Image();
-    orangeGhostImage.src = "../orangeghost.png";
+    orangeGhostImage.src = "orangeghost.png";
     pinkGhostImage = new Image();
-    pinkGhostImage.src = "../pinkghost.png";
+    pinkGhostImage.src = "pinkghost.png";
     redGhostImage = new Image();
-    redGhostImage.src = "../redghost.png";
+    redGhostImage.src = "redghost.png";
 
     PythonUptImage = new Image();
-    PythonUptImage.src = "../pythonup.png";
+    PythonUptImage.src = "pythonup.png";
     PythonDowntImage = new Image();
-    PythonDowntImage.src = "../pythondown.png";
+    PythonDowntImage.src = "/pythondown.png";
     PythonLeftImage = new Image();
-    PythonLeftImage.src = "../pythonleft.png";
+    PythonLeftImage.src = "pythonleft.png";
     PythonRigthImage = new Image();
-    PythonRigthImage.src = "../pythonright.png";
+    PythonRigthImage.src = "pythonright.png";
 }  
 
 function loadMap() {
@@ -399,4 +399,5 @@ reset() {
     this.x = this.startX;
     this.y = this.startY;
 }
+
 }
